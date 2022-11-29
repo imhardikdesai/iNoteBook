@@ -20,7 +20,43 @@ const NoteState = (props) => {
             "tag": "Shopping",
             "date": "2022-11-27T12:05:07.175Z",
             "__v": 0
-        }
+        },
+        {
+            "_id": "63835273d88fs1bc734480c2",
+            "user": "638208c9acb3e399a94ed209",
+            "title": "Home buy",
+            "description": "i want to buy home",
+            "tag": "Shopping",
+            "date": "2022-11-27T12:05:07.175Z",
+            "__v": 0
+        },
+        {
+            "_id": "6383g273d88f11bc734480c2",
+            "user": "638208c9acb3e399a94ed209",
+            "title": "Home buy",
+            "description": "i want to buy home",
+            "tag": "Shopping",
+            "date": "2022-11-27T12:05:07.175Z",
+            "__v": 0
+        },
+        {
+            "_id": "6383527kd88f11bc734480c2",
+            "user": "638208c9acb3e399a94ed209",
+            "title": "Home buy",
+            "description": "i want to buy home",
+            "tag": "Shopping",
+            "date": "2022-11-27T12:05:07.175Z",
+            "__v": 0
+        },
+        {
+            "_id": "6383527ad88f11bc734480c2",
+            "user": "638208c9acb3e399a94ed209",
+            "title": "Home buy",
+            "description": "i want to buy home",
+            "tag": "Shopping",
+            "date": "2022-11-27T12:05:07.175Z",
+            "__v": 0
+        },
     ]
 
     const [notes, setNotes] = useState(noteInitial);
