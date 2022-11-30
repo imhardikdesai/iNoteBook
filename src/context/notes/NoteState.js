@@ -16,7 +16,7 @@ const NoteState = (props) => {
             }
         });
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         setNotes(json);
     }
 
@@ -33,8 +33,9 @@ const NoteState = (props) => {
             },
             body: JSON.stringify({ title, description, tag })
         });
-        const json = response.json()
-        console.log(json);
+        // eslint-disable-next-line
+        const json = await response.json()
+        // console.log(json);
         fetchedNote()
     }
     // Delete Note 
@@ -46,8 +47,9 @@ const NoteState = (props) => {
                 'auth-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM4MjA4YzlhY2IzZTM5OWE5NGVkMjA5In0sImlhdCI6MTY2OTUyODc1MH0.2MwcuNkNMnFrkx13FasH-eMGz2H9agvRyFI01GUFu0Y'
             }
         });
+        // eslint-disable-next-line
         const json = await response.json()
-        console.log(json);
+        // console.log(json);
         const newNotes = notes.filter((notes) => { return notes._id !== id })
         // console.log(newNotes);
         setNotes(newNotes);
@@ -63,9 +65,9 @@ const NoteState = (props) => {
             },
             body: JSON.stringify({ title, description, tag })
         });
-
+        // eslint-disable-next-line
         const json = await response.json();
-        console.log(json);
+        // console.log(json);
         // for (let i = 0; i < notes.length; i++) {
         //     const element = notes[i];
         //     if (element._id === id) {
