@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const JWT_SIGN = 'hardikdesai$7';
 const { body, validationResult } = require('express-validator');
 const fetchUser = require('../middleware/fetchUser');
-
+let success = false
 
 //ROUTE : 1 Create a user with a POST request on localhost:5000/api/auth/createuser 
 router.post('/createuser', [
@@ -24,7 +24,8 @@ router.post('/createuser', [
         let user = await User.findOne({ email: req.body.email })
         // Check whether the user with this email exists already   
         if (user) {
-            return res.status(400).json({ "error": "Sorry a user with this email is already exists" })
+            success = false
+            return res.status(400).json({ "success": success, "error": "Sorry a user with this email is already exists" })
         }
 
         const salt = await bcrypt.genSaltSync(10);
@@ -43,7 +44,7 @@ router.post('/createuser', [
         // generate Auth token using JWT 
         const authToken = jwt.sign(data, JWT_SIGN);
         // res.send(user)
-        res.send({ authToken })
+        res.send({ success, authToken })
 
     } catch (error) {
         console.error(error.message)
@@ -74,7 +75,8 @@ router.post('/login', [
         const comparePass = await bcrypt.compare(password, user.password);
 
         if (!comparePass) {
-            return res.status(400).json({ error: "Please Enter valid credentials" })
+            success = false
+            return res.status(400).json({ "success": success, "error": "Please Enter valid credentials" })
         }
 
         const data = {
@@ -85,7 +87,8 @@ router.post('/login', [
         // generate Auth token using JWT 
         const authToken = jwt.sign(data, JWT_SIGN);
         // res.send(user)
-        res.json({ authToken })
+        success = true
+        res.json({ success, authToken })
 
     } catch (error) {
         console.error(error.message)
